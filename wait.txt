@@ -1,0 +1,56 @@
+Явные ожидания
+использование в коде
+переменная = WebDriverWait(browser, 10).until(EC.тип_проверки(By.ID, 'someid'))
+
+* title_is :                                Ожидает, что заголовок веб-страницы будет точно соответствовать указанному тексту
+                                            until(EC.title_is("My Page")
+
+* title_contains :                          Ожидает, что заголовок веб-страницы будет содержать указанный текст
+                                            until(EC.title_contains("Welcome")
+
+* presence_of_element_located :             Ожидает, что элемент будет присутствовать на веб-странице.
+                                            until(EC.presence_of_element_located((By.ID, "someid")))
+
+* visibility_of_element_located :           Ожидает, что элемент будет найден на странице и станет видимым
+                                            until(EC.visibility_of_element_located((By.ID, "someid")))
+
+* visibility_of:                            Ожидает, что элемент будет видимым на веб-странице
+                                            until(EC.visibility_of(element))
+
+* presence_of_all_elements_located :        Ожидает, что все элементы, соответствующие указанному локатору, будут присутствовать на странице
+                                            until(EC.presence_of_all_elements_located((By.CLASS_NAME, "someclass")))
+
+* text_to_be_present_in_element:            Ожидаемый текст, который должен присутствовать в элементе на веб-странице
+                                            Ожидание, что текст "Hello" будет присутствовать в элементе с id "someid"
+                                            until(EC.text_to_be_present_in_element((By.ID, "someid"), "Hello"))
+
+* text_to_be_present_in_element_value :     Ожидает, что значение атрибута "value" элемента будет содержать указанный текст.
+                                            Ожидание, что значение атрибута "value" элемента с id "someid" будет содержать "12345"
+                                            until(EC.text_to_be_present_in_element_value((By.ID, "someid"), "12345"))
+
+* frame_to_be_available_and_switch_to_it :  Ожидает, что фрейм будет доступен и переключается на него
+                                            until(EC.frame_to_be_available_and_switch_to_it("frame_name"))
+
+* invisibility_of_element_located :         Ожидает, что элемент станет невидимым на странице.
+                                            until(EC.invisibility_of_element_located((By.ID, "someid")))
+
+* element_to_be_clickable :                 Ожидает, что элемент станет кликабельным
+                                            until(EC.element_to_be_clickable((By.ID, "someid")))
+
+* staleness_of :                            Ожидает, что элемент перестанет быть прикрепленным к DOM страницы
+                                            until(EC.staleness_of(element))
+
+* element_to_be_selected :                  Ожидает, что элемент будет выбран.
+                                            until(EC.element_to_be_selected(element))
+
+* element_located_to_be_selected :          Ожидает, что элемент будет найден и выбран.
+                                            until(EC.element_located_to_be_selected((By.ID, "someid")))
+
+* element_selection_state_to_be :           Ожидает, что состояние выбора элемента будет соответствовать заданному состоянию.
+                                            until(EC.element_selection_state_to_be(element, True))
+
+* element_located_selection_state_to_be :   Ожидает, что элемент будет найден и его состояние выбора будет соответствовать заданному состоянию.
+                                            until(EC.element_located_selection_state_to_be((By.ID, "someid"), True))
+
+* alert_is_present :                        Ожидает, что диалоговое окно (alert) будет присутствовать.
+                                            until(EC.alert_is_present())

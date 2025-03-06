@@ -1,0 +1,32 @@
+Поиск по placeholder:
+    "input[placeholder='Search Google or type a URL']"
+
+Загрузка файла из директории:
+    file = browser.find_element(By.ID, "file")
+        filePath = "C:\\Users\\11089\PycharmProjects\stepik_autotest\\task.txt"
+        file.send_keys(filePath)
+
+Работа со вкладками, методы:
+    browser.switch_to.window(window_name) - переключения на новую вкладку надо явно указать
+    new_window = browser.window_handles[1] - возвращает массив имён всех вкладок. выбираем вторую вкладку
+    first_window = browser.window_handles[0] - запоминание тек.вкладки
+Пример:
+new_window = browser.window_handles - получаем список открытых вкладок
+browser.switch_to.window(new_window[1]) - переключаемся на вторую вкладку
+
+Про JavaScript
+    Обратите внимание, что исполняемый JavaScript нужно заключать в кавычки (двойные или одинарные).
+    Если внутри скрипта вам также понадобится использовать кавычки, а для выделения скрипта вы уже используете
+     двойные кавычки, то в скрипте следует поставить одинарные:
+
+    browser.execute_script("document.title='Script executing';")
+    Такой формат записи тоже будет работать:
+
+    browser.execute_script('document.title="Script executing";')
+    Можно с помощью этого метода выполнить сразу несколько инструкций, перечислив их через точку с запятой.
+    Изменим сначала заголовок страницы, а затем вызовем alert:
+
+    browser.execute_script("document.title='Script executing';alert('Robots at work');")
+
+# говорим WebDriver искать каждый элемент в течение 5 секунд
+        browser.implicitly_wait(5)

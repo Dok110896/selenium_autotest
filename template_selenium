@@ -1,0 +1,14 @@
+from selenium import webdriver
+from selenium.webdriver import ActionChains
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
+from faker import Faker
+import time
+
+
+options = webdriver.ChromeOptions()
+driver = webdriver.Chrome(options=options, service=ChromeService(ChromeDriverManager().install()))
+driver.maximize_window()
+
+fake = Faker("en_US")    # в данной строчке указывается язык, на котором будут генерироваться данные (ru_Ru - русский язык)
